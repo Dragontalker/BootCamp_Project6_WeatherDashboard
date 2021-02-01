@@ -13,6 +13,10 @@ const fetchWeatherData = async (city) => {
         localStorage.setItem("lonValue", data.coord.lon);
         localStorage.setItem("latValue", data.coord.lat);
         localStorage.setItem("currentIconURL", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+
+        // Get the date.
+        let UTC = new Date(data.dt);
+        localStorage.setItem("currentDate", UTC);
     }); 
 }
 
@@ -35,6 +39,7 @@ console.log(`The longtitude value is ${localStorage.getItem("lonValue")}`);
 console.log(`The latitude value is ${localStorage.getItem("latValue")}`);
 console.log(`The image url for current date icon is ${localStorage.getItem("currentIconURL")}`);
 console.log(`The UV index valuue is ${localStorage.getItem("UV")}`);
+console.log(`The UTC time is ${localStorage.getItem("currentDate")}`);
 
 // document.getElementById('temprature').innerText = `Temperature: ${tempValue}°F`;
 // document.getElementById('humidity').innerText = `Humidity: ${humiValue}%`;
