@@ -1,6 +1,14 @@
 // API Calls
 const apiKey = "792ee81e691256c1aa741d76e3a33b8a";
 
+const formatDate = (value) => {
+    let UTC = new Date(value * 1000);
+    let dayValue = UTC.getDate();
+    let monthValue = UTC.getMonth() + 1;
+    let yearValue = UTC.getUTCFullYear();
+    return `${monthValue}/${dayValue}/${yearValue}`;
+}
+
 const fetchWeatherData = async (city) => {
     let apiCall = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
     .then(response => response.json())
@@ -13,10 +21,7 @@ const fetchWeatherData = async (city) => {
         localStorage.setItem("lonValue", data.coord.lon);
         localStorage.setItem("latValue", data.coord.lat);
         localStorage.setItem("currentIconURL", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
-
-        // Get the date.
-        let UTC = new Date(data.dt);
-        localStorage.setItem("currentDate", UTC);
+        localStorage.setItem("currentDate", formatDate(data.dt));
     }); 
 }
 
@@ -27,6 +32,16 @@ const fetchUVIndexData = async () => {
     .then(response => response.json())
     .then(data => {
         localStorage.setItem("UV", data.value);
+    })
+}
+
+const fetchForecastData = async (city) => {
+    let apiCall = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+        for (let i = 7; i < data.list.length; i = i + 8) {
+            localStorage.setItem(`#${i}Date`, formatDate(data.list[i].dt));
+        }
     })
 }
 
