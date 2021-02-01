@@ -75,7 +75,7 @@ const displayDashboard = () => {
 
     // Update the temperatureL.
     let currentTemp = document.getElementById("currentTemp");
-    currentTemp.value = `Temperature: ${localStorage.getItem("temperature")}°F`;
+    currentTemp.innerHTML = `Temperature: ${localStorage.getItem("temperature")}°F`;
 }
 // document.getElementById('temprature').innerText = `Temperature: ${tempValue}°F`;
 // document.getElementById('humidity').innerText = `Humidity: ${humiValue}%`;
