@@ -20,5 +20,8 @@ const getWeatherData = async (city) => {
         console.log(`The wind speed is ${windSpeedValue}`);
         console.log(`The longtitude value is ${lonValue}`);
         console.log(`The latitude value is ${latValue}`);
+
+        document.getElementById('temprature').innerText = `Temperature: ${tempValue}°F`;
+        document.getElementById('humidity').innerText = `Humidity: ${humiValue}%`;
     }); 
 }
