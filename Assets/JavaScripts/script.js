@@ -41,6 +41,7 @@ const fetchForecastData = async (city) => {
     .then(data => {
         for (let i = 7; i < data.list.length; i = i + 8) {
             localStorage.setItem(`#${i}Date`, formatDate(data.list[i].dt));
+            localStorage.setItem(`${i}IconURL`, `https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png`);
         }
     })
 }
