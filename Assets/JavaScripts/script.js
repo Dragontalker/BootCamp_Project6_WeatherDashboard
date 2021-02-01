@@ -69,9 +69,13 @@ console.log(`The UTC time is ${localStorage.getItem("currentDate")}`);
 const displayDashboard = () => {
     // Update the current city and date and icon.
     let currentSection = document.getElementById("cityDateIcon");
-    let cityHTML = `<h3>${localStorage.getItem("cityName")} ${localStorage.getItem("currentDate")}</h3>`;
+    let cityHTML = `${localStorage.getItem("cityName")} ${localStorage.getItem("currentDate")}`;
     let iconHTML = "<img src=" +  localStorage.getItem("currentIconURL") + " alt='The icon for today's weather.'/>";
     currentSection.innerHTML = cityHTML + iconHTML;
+
+    // Update the temperatureL.
+    let currentTemp = document.getElementById("currentTemp");
+    currentTemp.value = `Temperature: ${localStorage.getItem("temperature")}°F`;
 }
 // document.getElementById('temprature').innerText = `Temperature: ${tempValue}°F`;
 // document.getElementById('humidity').innerText = `Humidity: ${humiValue}%`;
