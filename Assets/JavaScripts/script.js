@@ -2,7 +2,7 @@
 const apiKey = "792ee81e691256c1aa741d76e3a33b8a";
 
 const testApi = async (city) => {
-    let test = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+    let test = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
     .then(response => response.json())
     .then(data => {
         let nameValue = data.name;
