@@ -2,7 +2,7 @@
 const apiKey = "792ee81e691256c1aa741d76e3a33b8a";
 
 const getWeatherData = async (city) => {
-    let test = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
+    let apiCall = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
     .then(response => response.json())
     .then(data => {
         let cityValue = data.name;
@@ -13,7 +13,10 @@ const getWeatherData = async (city) => {
         let lonValue = data.coord.lon;
         let latValue = data.coord.lat;
 
-        console.log(`City: ${cityValue}`);
+        localStorage.setItem("cityName", data.name);
+        localStorage.setItem("temperature", data.main.temp);
+
+        console.log(`City: ${localStorage.getItem("cityName")}`);
         console.log(`Temperature: ${tempValue}°F`);
         console.log(`Humidity: ${humiValue}`);
         console.log(`The description value from data is ${descValue}`);
