@@ -48,6 +48,12 @@ const fetchForecastData = async (city) => {
     })
 }
 
+const fetchData = async (city) => {
+    fetchWeatherData(city);
+    fetchUVIndexData();
+    fetchForecastData(city);
+}
+
 console.log(`City: ${localStorage.getItem("cityName")}`);
 console.log(`Temperature: ${localStorage.getItem("temperature")}°F`);
 console.log(`Humidity: ${localStorage.getItem("humidity")}`);
