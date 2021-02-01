@@ -65,5 +65,13 @@ console.log(`The image url for current date icon is ${localStorage.getItem("curr
 console.log(`The UV index valuue is ${localStorage.getItem("UV")}`);
 console.log(`The UTC time is ${localStorage.getItem("currentDate")}`);
 
+// At reload, if there is no data store in localStorage, hide the weather information.
+const displayDashboard = () => {
+    // Update the current city and date and icon.
+    let currentSection = document.getElementById("cityDateIcon");
+    let cityHTML = `<h3>${localStorage.getItem("cityName")} ${localStorage.getItem("currentDate")}</h3>`;
+    let iconHTML = "<img src=" +  localStorage.getItem("currentIconURL") + " alt='The icon for today's weather.'/>";
+    currentSection.innerHTML = cityHTML + iconHTML;
+}
 // document.getElementById('temprature').innerText = `Temperature: ${tempValue}°F`;
 // document.getElementById('humidity').innerText = `Humidity: ${humiValue}%`;
