@@ -1,30 +1,30 @@
 // API Calls
 const apiKey = "792ee81e691256c1aa741d76e3a33b8a";
 
-const getWeatherData = async (city) => {
+const fetchWeatherData = async (city) => {
     let apiCall = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
     .then(response => response.json())
     .then(data => {
-        let cityValue = data.name;
-        let tempValue = data.main.temp;
-        let humiValue = data.main.humidity;
-        let descValue = data.weather[0].description;
         let windSpeedValue = data.wind.speed;
         let lonValue = data.coord.lon;
         let latValue = data.coord.lat;
 
         localStorage.setItem("cityName", data.name);
         localStorage.setItem("temperature", data.main.temp);
+        localStorage.setItem("humidity", data.main.humidity);
+        localStorage.setItem("description", data.weather[0].description);
 
         console.log(`City: ${localStorage.getItem("cityName")}`);
-        console.log(`Temperature: ${tempValue}°F`);
-        console.log(`Humidity: ${humiValue}`);
-        console.log(`The description value from data is ${descValue}`);
+        console.log(`Temperature: ${localStorage.getItem("temperature")}°F`);
+        console.log(`Humidity: ${localStorage.getItem("humidity")}`);
+        console.log(`The description value from data is ${localStorage.getItem("description")}`);
         console.log(`The wind speed is ${windSpeedValue}`);
         console.log(`The longtitude value is ${lonValue}`);
         console.log(`The latitude value is ${latValue}`);
 
-        document.getElementById('temprature').innerText = `Temperature: ${tempValue}°F`;
-        document.getElementById('humidity').innerText = `Humidity: ${humiValue}%`;
+        
     }); 
 }
+
+// document.getElementById('temprature').innerText = `Temperature: ${tempValue}°F`;
+// document.getElementById('humidity').innerText = `Humidity: ${humiValue}%`;
