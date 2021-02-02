@@ -49,7 +49,7 @@ const fetchForecastData = async (city) => {
 }
 
 const fetchData = async (city) => {
-    fetchWeatherData(city);
+    await fetchWeatherData(city);
     fetchUVIndexData();
     fetchForecastData(city);
 }
@@ -125,8 +125,14 @@ const displayForecast = () => {
     }
 }
 
-const displayCity = (city) => {
-    fetchData(city);
+const displayCity = async (city) => {
+    await fetchData(city);
     displayDashboard();
     displayForecast();
+}
+
+const searchCity = () => {
+    let result = document.getElementById("search").value;
+    displayCity(result);
+    addSearchHistory(result);
 }
