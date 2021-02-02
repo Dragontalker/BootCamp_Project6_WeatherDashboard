@@ -1,7 +1,6 @@
 // API Calls
 const apiKey = "792ee81e691256c1aa741d76e3a33b8a";
 
-
 const formatDate = (value) => {
     let UTC = new Date(value * 1000);
     let dayValue = UTC.getDate();
@@ -17,15 +16,11 @@ const fetchWeatherData = async (city) => {
         localStorage.setItem("cityName", data.name);
         localStorage.setItem("temperature", data.main.temp);
         localStorage.setItem("humidity", data.main.humidity);
-        localStorage.setItem("description", data.weather[0].description);
         localStorage.setItem("windSpeed", data.wind.speed);
         localStorage.setItem("lonValue", data.coord.lon);
         localStorage.setItem("latValue", data.coord.lat);
         localStorage.setItem("currentIconURL", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
         localStorage.setItem("currentDate", formatDate(data.dt));
-        
-        let searchHistory = document.getElementById("searchHistory");
-        searchHistory.innerHTML += `<li class='list-group-item' id=${data.name}>${data.name}</li>`;
     }).catch(error => {
         alert("Invalid city name! Please enter again!");
     })
@@ -129,8 +124,18 @@ const displayCity = async (city) => {
 
 const searchCity = () => {
     let result = document.getElementById("search").value;
+    let searchHistory = document.getElementById("searchHistory");
+    searchHistory.innerHTML += `<button class='list-group-item' onclick="displayCity('${result}')">${result}</button>`;
+
+    // let searchLog = document.getElementById(result);
+    // searchLog.addEventListener('click', displayCity(result));
+
     displayCity(result);
 }
 
 let searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener('click', searchCity);
+
+// let cityName = localStorage.getItem("cityName");
+// let searchLog = document.getElementById(cityName);
+// searchLog.addEventListener('click', displayCity(cityName));
