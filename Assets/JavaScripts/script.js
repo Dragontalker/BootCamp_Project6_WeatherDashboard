@@ -54,17 +54,6 @@ const fetchData = async (city) => {
     fetchForecastData(city);
 }
 
-console.log(`City: ${localStorage.getItem("cityName")}`);
-console.log(`Temperature: ${localStorage.getItem("temperature")}°F`);
-console.log(`Humidity: ${localStorage.getItem("humidity")}`);
-console.log(`The description value from data is ${localStorage.getItem("description")}`);
-console.log(`The wind speed is ${localStorage.getItem("windSpeed")}MPH`);
-console.log(`The longtitude value is ${localStorage.getItem("lonValue")}`);
-console.log(`The latitude value is ${localStorage.getItem("latValue")}`);
-console.log(`The image url for current date icon is ${localStorage.getItem("currentIconURL")}`);
-console.log(`The UV index valuue is ${localStorage.getItem("UV")}`);
-console.log(`The UTC time is ${localStorage.getItem("currentDate")}`);
-
 // At reload, if there is no data store in localStorage, hide the weather information.
 const displayDashboard = () => {
     // Update the current city and date and icon.
@@ -136,3 +125,6 @@ const searchCity = () => {
     displayCity(result);
     addSearchHistory(result);
 }
+
+let searchBtn = document.getElementById("searchBtn");
+searchBtn.addEventListener('click', searchCity);
