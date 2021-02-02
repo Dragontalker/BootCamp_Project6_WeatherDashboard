@@ -1,6 +1,7 @@
 // API Calls
 const apiKey = "792ee81e691256c1aa741d76e3a33b8a";
 
+
 const formatDate = (value) => {
     let UTC = new Date(value * 1000);
     let dayValue = UTC.getDate();
@@ -22,17 +23,7 @@ const fetchWeatherData = async (city) => {
         localStorage.setItem("latValue", data.coord.lat);
         localStorage.setItem("currentIconURL", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
         localStorage.setItem("currentDate", formatDate(data.dt));
-    }).catch(error => {
-        localStorage.setItem("cityName", "---");
-        localStorage.setItem("temperature", "---");
-        localStorage.setItem("humidity", "---");
-        localStorage.setItem("description", "---");
-        localStorage.setItem("windSpeed", "---");
-        localStorage.setItem("lonValue", "---");
-        localStorage.setItem("latValue", "---");
-        localStorage.setItem("currentIconURL", "---");
-        localStorage.setItem("currentDate", "---");
-    }); 
+    })
 }
 
 const fetchUVIndexData = async () => {
@@ -58,10 +49,12 @@ const fetchForecastData = async (city) => {
             localStorage.setItem(`#${i}humidity`, data.list[i].main.humidity);
         }
     }).catch(error => {
-        localStorage.setItem(`#${i}Date`, "---");
-        localStorage.setItem(`#${i}IconURL`, "---");
-        localStorage.setItem(`#${i}temperature`, "---");
-        localStorage.setItem(`#${i}humidity`, "---");
+        for (let i = 7; i < 40; i = i + 8) {
+            localStorage.setItem(`#${i}Date`, "---");
+            localStorage.setItem(`#${i}IconURL`, "---");
+            localStorage.setItem(`#${i}temperature`, "---");
+            localStorage.setItem(`#${i}humidity`, "---");
+        }
     });
 }
 
@@ -70,6 +63,7 @@ const fetchData = async (city) => {
     fetchUVIndexData();
     fetchForecastData(city);
 }
+
 
 // At reload, if there is no data store in localStorage, hide the weather information.
 const displayDashboard = () => {
