@@ -99,5 +99,8 @@ const displayDashboard = () => {
         currentUV.style.backgroundColor = "purple";
     }
 }
-// document.getElementById('temprature').innerText = `Temperature: ${tempValue}°F`;
-// document.getElementById('humidity').innerText = `Humidity: ${humiValue}%`;
+
+const addSearchHistory = (city) => {
+    let searchHistory = document.getElementById("searchHistory");
+    searchHistory.innerHTML += `<li class='list-group-item'>${city}</li>`;
+}
