@@ -23,6 +23,9 @@ const fetchWeatherData = async (city) => {
         localStorage.setItem("latValue", data.coord.lat);
         localStorage.setItem("currentIconURL", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
         localStorage.setItem("currentDate", formatDate(data.dt));
+        addSearchHistory(data.name);
+    }).catch(error => {
+        alert("Invalid city name! Please enter again!");
     })
 }
 
@@ -134,7 +137,6 @@ const displayCity = async (city) => {
 const searchCity = () => {
     let result = document.getElementById("search").value;
     displayCity(result);
-    addSearchHistory(result);
 }
 
 let searchBtn = document.getElementById("searchBtn");
