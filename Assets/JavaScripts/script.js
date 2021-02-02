@@ -21,9 +21,7 @@ const fetchWeatherData = async (city) => {
         localStorage.setItem("latValue", data.coord.lat);
         localStorage.setItem("currentIconURL", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
         localStorage.setItem("currentDate", formatDate(data.dt));
-    }).catch(error => {
-        alert("Invalid city name! Please enter again!");
-    })
+    });
 }
 
 const fetchUVIndexData = async () => {
@@ -33,8 +31,6 @@ const fetchUVIndexData = async () => {
     .then(response => response.json())
     .then(data => {
         localStorage.setItem("UV", data.value);
-    }).catch(error => {
-        alert("Invalid city name! Please enter again!");
     });
 }
 
@@ -48,8 +44,6 @@ const fetchForecastData = async (city) => {
             localStorage.setItem(`#${i}temperature`, data.list[i].main.temp);
             localStorage.setItem(`#${i}humidity`, data.list[i].main.humidity);
         }
-    }).catch(error => {
-        alert("Invalid city name! Please enter again!");
     });
 }
 
