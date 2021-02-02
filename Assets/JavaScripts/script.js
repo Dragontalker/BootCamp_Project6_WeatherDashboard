@@ -23,7 +23,9 @@ const fetchWeatherData = async (city) => {
         localStorage.setItem("latValue", data.coord.lat);
         localStorage.setItem("currentIconURL", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
         localStorage.setItem("currentDate", formatDate(data.dt));
-        addSearchHistory(data.name);
+        
+        let searchHistory = document.getElementById("searchHistory");
+        searchHistory.innerHTML += `<li class='list-group-item' id=${data.name}>${data.name}</li>`;
     }).catch(error => {
         alert("Invalid city name! Please enter again!");
     })
@@ -37,7 +39,7 @@ const fetchUVIndexData = async () => {
     .then(data => {
         localStorage.setItem("UV", data.value);
     }).catch(error => {
-        localStorage.setItem("UV", "---");
+        alert("Invalid city name! Please enter again!");
     });
 }
 
@@ -52,12 +54,7 @@ const fetchForecastData = async (city) => {
             localStorage.setItem(`#${i}humidity`, data.list[i].main.humidity);
         }
     }).catch(error => {
-        for (let i = 7; i < 40; i = i + 8) {
-            localStorage.setItem(`#${i}Date`, "---");
-            localStorage.setItem(`#${i}IconURL`, "---");
-            localStorage.setItem(`#${i}temperature`, "---");
-            localStorage.setItem(`#${i}humidity`, "---");
-        }
+        alert("Invalid city name! Please enter again!");
     });
 }
 
@@ -103,10 +100,6 @@ const displayDashboard = () => {
     }
 }
 
-const addSearchHistory = (city) => {
-    let searchHistory = document.getElementById("searchHistory");
-    searchHistory.innerHTML += `<li class='list-group-item'>${city}</li>`;
-}
 
 const displayForecast = () => {
     for (let i = 7; i < 40; i = i + 8) {
