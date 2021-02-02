@@ -10,7 +10,7 @@ const formatDate = (value) => {
 }
 
 const fetchWeatherData = async (city) => {
-    let apiCall = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
+    let apiCall = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
     .then(response => response.json())
     .then(data => {
         localStorage.setItem("cityName", data.name);
@@ -27,7 +27,7 @@ const fetchWeatherData = async (city) => {
 const fetchUVIndexData = async () => {
     let latValue = localStorage.getItem("lonValue");
     let lonValue = localStorage.getItem("latValue");
-    let apiCall = await fetch(`http://api.openweathermap.org/data/2.5/uvi?lat=${latValue}&lon=${lonValue}&appid=${apiKey}`)
+    let apiCall = await fetch(`https://api.openweathermap.org/data/2.5/uvi?lat=${latValue}&lon=${lonValue}&appid=${apiKey}`)
     .then(response => response.json())
     .then(data => {
         localStorage.setItem("UV", data.value);
@@ -35,7 +35,7 @@ const fetchUVIndexData = async () => {
 }
 
 const fetchForecastData = async (city) => {
-    let apiCall = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`)
+    let apiCall = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`)
     .then(response => response.json())
     .then(data => {
         for (let i = 7; i < data.list.length; i = i + 8) {
