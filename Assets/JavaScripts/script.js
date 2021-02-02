@@ -109,6 +109,7 @@ const displayForecast = () => {
     for (let i = 7; i < 40; i = i + 8) {
         let currentForecast = document.getElementById(`forecast-#${i}`);
         currentForecast.style.backgroundColor = "lightblue";
+        currentForecast.innerHTML = "";
 
         let date = localStorage.getItem(`#${i}Date`)
         currentForecast.innerHTML += `<h5 id="foracastDate-day1" class="card-title">${date}</h5>`;
@@ -122,6 +123,10 @@ const displayForecast = () => {
         let humi = localStorage.getItem(`#${i}humidity`);
         currentForecast.innerHTML += `<p id="forecastHumi-day1" class="card-text">Humidity: ${humi}%</p> `;
     }
+}
 
-    
+const displayCity = (city) => {
+    fetchData(city);
+    displayDashboard();
+    displayForecast();
 }
