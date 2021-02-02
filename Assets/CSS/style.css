@@ -7,11 +7,13 @@
     height: 50px;
 }
 
-.box {
-    border: 1px solid black;
-}
-
 colorBlock {
     background-color: yellow;
     padding: 2px;
+}
+
+#currentSection {
+    border: 1px solid black;
+    margin: 20px 2px;
+    padding: 10px 5px;
 }
