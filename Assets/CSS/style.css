@@ -17,3 +17,7 @@ colorBlock {
     margin: 20px 2px;
     padding: 10px 5px;
 }
+
+#searchSection {
+    background-color: lightgrey;
+}
