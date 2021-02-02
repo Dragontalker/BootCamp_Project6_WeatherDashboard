@@ -80,6 +80,24 @@ const displayDashboard = () => {
     // Update the humidity.
     let currentHumi = document.getElementById("currentHumi");
     currentHumi.innerHTML = `Humidity: ${localStorage.getItem("humidity")}%`;
+
+    // Update the UV index.
+    let currentUV = document.getElementById("uvColor");
+    currentUV.innerHTML = localStorage.getItem("UV");
+
+    // Change UV index based on color.
+    let uvValue = parseFloat(localStorage.getItem("UV"));
+    if (uvValue <= 2) {
+        currentUV.style.backgroundColor = "green";
+    } else if (uvValue <= 5) {
+        currentUV.style.backgroundColor = "yellow";
+    } else if (uvValue <= 7) {
+        currentUV.style.backgroundColor = "orange";
+    } else if (uvValue <= 10) {
+        currentUV.style.backgroundColor = "red";
+    } else if (uvValue > 10) {
+        currentUV.style.backgroundColor = "purple";
+    }
 }
 // document.getElementById('temprature').innerText = `Temperature: ${tempValue}°F`;
 // document.getElementById('humidity').innerText = `Humidity: ${humiValue}%`;
