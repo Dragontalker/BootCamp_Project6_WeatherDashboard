@@ -36,7 +36,7 @@ const fetchUVIndexData = async () => {
 }
 
 const fetchForecastData = async (city) => {
-    let apiCall = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`)
+    let apiCall = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`)
     .then(response => response.json())
     .then(data => {
         for (let i = 7; i < data.list.length; i = i + 8) {
@@ -103,4 +103,25 @@ const displayDashboard = () => {
 const addSearchHistory = (city) => {
     let searchHistory = document.getElementById("searchHistory");
     searchHistory.innerHTML += `<li class='list-group-item'>${city}</li>`;
+}
+
+const displayForecast = () => {
+    for (let i = 7; i < 40; i = i + 8) {
+        let currentForecast = document.getElementById(`forecast-#${i}`);
+        currentForecast.style.backgroundColor = "lightblue";
+
+        let date = localStorage.getItem(`#${i}Date`)
+        currentForecast.innerHTML += `<h5 id="foracastDate-day1" class="card-title">${date}</h5>`;
+
+        let icon = localStorage.getItem(`#${i}IconURL`);
+        currentForecast.innerHTML += `<img id="forecastIcon-day1" src="${icon}" alt="Icon for day 1 forcast.">`;
+
+        let temp = localStorage.getItem(`#${i}temperature`);
+        currentForecast.innerHTML += `<p id="forecastTemp-day1" class="card-text">Temp: ${temp}°F</p>`;
+
+        let humi = localStorage.getItem(`#${i}humidity`);
+        currentForecast.innerHTML += `<p id="forecastHumi-day1" class="card-text">Humidity: ${humi}%</p> `;
+    }
+
+    
 }
