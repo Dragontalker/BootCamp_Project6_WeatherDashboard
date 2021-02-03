@@ -1,5 +1,6 @@
 # Weather Dashboard
 
+Powered by: 
 ![JS](https://aleen42.github.io/badges/src/javascript.svg)
 ![VScode](https://aleen42.github.io/badges/src/visual_studio_code.svg)
 
