@@ -8,6 +8,14 @@ Preview on GitHub Pages:
 ![GH](https://aleen42.github.io/badges/src/github.svg)
 https://dragontalker.github.io/FrontEnd-WeatherDashboard/ 
 
+## Tech Used
+* HTML 5
+* CSS 3
+* JavaScript
+* Boostrap 5
+* jQuery
+* Ajax
+
 
 ## Screenshot of UI
 
