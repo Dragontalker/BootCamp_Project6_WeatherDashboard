@@ -8,9 +8,6 @@ Preview on GitHub Pages:
 ![GH](https://aleen42.github.io/badges/src/github.svg)
 https://dragontalker.github.io/FrontEnd-WeatherDashboard/ 
 
-**GitHub Repository URL**
-https://github.com/Dragontalker/FrontEnd-WeatherDashboard
-
 
 ## Screenshot of UI
 
