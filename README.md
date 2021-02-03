@@ -1,6 +1,7 @@
 # Weather Dashboard
 
-[![javaScript](https://aleen42.github.io/badges/src/javascript.svg)]
+![JS](https://aleen42.github.io/badges/src/javascript.svg)
+![VScode](https://aleen42.github.io/badges/src/visual_studio_code.svg)
 
 
 **Deployed application URL**
