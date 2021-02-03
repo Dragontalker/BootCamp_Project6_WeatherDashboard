@@ -1,7 +1,11 @@
 # Weather Dashboard
 
-## Deployed Link: 
-https://dragontalker.github.io/Weather_Dashboard/
+**Deployed application URL**
+https://dragontalker.github.io/FrontEnd-WeatherDashboard/
+
+**GitHub Repository URL**
+https://github.com/Dragontalker/FrontEnd-WeatherDashboard
+
 
 ## Screenshot of UI
 
