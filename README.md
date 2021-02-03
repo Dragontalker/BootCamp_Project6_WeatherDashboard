@@ -4,7 +4,7 @@
 ![VScode](https://aleen42.github.io/badges/src/visual_studio_code.svg)
 
 
-Preview on GitHub Pages:
+Preview on
 ![GH](https://aleen42.github.io/badges/src/github.svg)
 https://dragontalker.github.io/FrontEnd-WeatherDashboard/ 
 
