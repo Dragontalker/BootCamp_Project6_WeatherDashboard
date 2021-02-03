@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-[![ForTheBadge built-by-Richard](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://github.com/Dragontalker/)
+[![javaScript](https://aleen42.github.io/badges/src/javascript.svg)]
 
 
 **Deployed application URL**
