@@ -1,7 +1,8 @@
 # Weather Dashboard
 
 **Deployed application URL**
-https://dragontalker.github.io/FrontEnd-WeatherDashboard/
+https://dragontalker.github.io/FrontEnd-WeatherDashboard/ [![Website perso.crans.org](https://img.shields.io/website-up-down-green-red/http/perso.crans.org.svg)](http://perso.crans.org/)
+
 
 **GitHub Repository URL**
 https://github.com/Dragontalker/FrontEnd-WeatherDashboard
