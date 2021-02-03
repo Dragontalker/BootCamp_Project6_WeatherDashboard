@@ -4,7 +4,8 @@
 ![VScode](https://aleen42.github.io/badges/src/visual_studio_code.svg)
 
 
-**Deployed application URL**
+Preview on GitHub Pages:
+![GH](https://aleen42.github.io/badges/src/github.svg)
 https://dragontalker.github.io/FrontEnd-WeatherDashboard/ 
 
 **GitHub Repository URL**
